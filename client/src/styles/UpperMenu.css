@@ -1,0 +1,31 @@
+.upper_menu{
+    width: 100%;
+    padding: 1rem;
+    background-color: rgb(0, 80, 100);
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    border-bottom: 2px solid rgb(18, 84, 100);
+}
+.user{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 1rem;
+}
+.user .imguser{
+    width: 4rem;
+    background-color: white;
+    border-radius: 10rem;
+    padding: 1rem;
+}
+.user .imguser img{
+    width: 100%;
+}
+.barsearch{
+    margin: auto;
+    width: 100%;
+}
+.barsearch input{
+    width: 100%;
+    padding: 0.5rem;
+}

@@ -1,0 +1,30 @@
+.lateral_menu{
+    background-color: rgb(27, 120, 143);
+    height: 100%;
+    padding-top: 2rem;
+}
+.option{
+    padding:1rem 4rem;
+    font-size: 2rem;
+    cursor: pointer;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-radius: 0.5rem;
+
+}
+.option img{
+    width: 3rem;
+}
+.option:hover{
+    background-color: rgb(47, 166, 196);
+}
+.title_option{
+    padding:1rem 2rem;
+    font-size: 2rem;
+    margin-top: 4rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: white;
+}
