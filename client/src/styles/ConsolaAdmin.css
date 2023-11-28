@@ -1,10 +1,44 @@
 .panel{
     background-color: rgb(231, 231, 231);
     width: 100%;
-    height: 100%;
+
 }
 .contmain{
     display: grid;
     grid-template-columns: 20% 80%;
     height: 100%;
+}
+
+.contconsola{
+    padding: 2rem;
+}
+.titleconso{
+    font-size: 4rem;
+    font-weight: 700;
+}
+.optionconsogrid{
+    margin-top: 4rem;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(3,1fr);
+}
+.optionconsoone{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 2rem;
+    gap: 2rem;
+    background-color: rgb(201, 201, 201);
+    cursor: pointer;
+}
+.imgconso{
+    padding: 2rem;
+    background-color: rgb(27, 120, 143);
+    border-radius: 2rem;
+}
+.imgconso img{
+    width: 100%;
+}
+.subtitleconso{
+    font-size: 2rem;
 }

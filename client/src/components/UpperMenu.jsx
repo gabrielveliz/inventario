@@ -12,7 +12,7 @@ let usuario = "Gabito";
             <div className='barsearch'><input type="text" placeholder='Search...' /></div>
             <div className="user">
                 <div className='imguser'><img src={imguser} alt="img user" /></div>
-                <span>{usuario}</span>
+                <div className='nameuser'><span>{usuario}</span></div>
             </div>
         </div>
         </>

@@ -6,11 +6,20 @@
     grid-template-columns: 20% 60% 20%;
     border-bottom: 2px solid rgb(18, 84, 100);
 }
+.logo{
+    color: white;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    margin-left: 2rem;
+}
+
 .user{
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
-    gap: 1rem;
+    gap: 2rem;
+    padding-right: 2rem;
 }
 .user .imguser{
     width: 4rem;
@@ -28,4 +37,9 @@
 .barsearch input{
     width: 100%;
     padding: 0.5rem;
+}
+.nameuser{
+    font-size: 1.6rem;
+    color: white;
+    font-weight: 700;
 }

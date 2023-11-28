@@ -12,33 +12,33 @@ import "../styles/LateralMenu.css"
 
 const LateralMenu = () => {
 
-    let op = ["Dashboard",
-            "Shopping",
-            "Received",
-            "Returns",
-            "Stocks",
-            "Sales",
-            "Maintenance",
-            "Suppliers",
-            "Products",
-            "Users",
-            "Configuration"];
+    //datos para menu lateral izquierdo, si en img se utiliza "" se considera un titulo
+    let op = [
+        {id:1,name:"Dashboard",img:imgdash},
+        {id:2,name:"Shopping",img:imgshop},
+        {id:3,name:"Received",img:imgrece},
+        {id:4,name:"Returns",img:imgret},
+        {id:5,name:"Stocks",img:imgsto},
+        {id:6,name:"Sales",img:imgsal},
+        {id:7,name:"Maintenance",img:""},
+        {id:8,name:"Suppliers",img:imgsupp},
+        {id:9,name:"Products",img:imgpro},
+        {id:10,name:"Users",img:imgus},
+        {id:11,name:"Configuration",img:imgconf},
+];
 
     return(
         <>
         <div className='lateral_menu'>
-            <div className="option"><img src={imgdash} alt="iconmenu" /><span>{op[0]}</span></div>
-            <div className="option"><img src={imgshop} alt="iconmenu" /><span>{op[1]}</span></div>
-            <div className="option"><img src={imgrece} alt="iconmenu" /><span>{op[2]}</span></div>
-            <div className="option"><img src={imgret} alt="iconmenu" /><span>{op[3]}</span></div>
-            <div className="option"><img src={imgsto} alt="iconmenu" /><span>{op[4]}</span></div>
-            <div className="option"><img src={imgsal} alt="iconmenu" /><span>{op[5]}</span></div>
-            <div className="title_option"><span>{op[6]}</span></div>
-            <div className="option"><img src={imgsupp} alt="iconmenu" /><span>{op[7]}</span></div>
-            <div className="option"><img src={imgpro} alt="iconmenu" /><span>{op[8]}</span></div>
-            <div className="option"><img src={imgus} alt="iconmenu" /><span>{op[9]}</span></div>
-            <div className="option"><img src={imgconf} alt="iconmenu" /><span>{op[10]}</span></div>
-
+            { // mostrando el menu lateral izquierdo con los datos del arrelo op
+                op.map((data) =>(
+                    <div key={data.id} className={data.img ? "option" : "title_option"}>
+                        {data.img ?
+                            <img src={data.img} alt="iconmenu" />:""
+                        }
+                    <span>{data.name}</span></div>
+                ) )
+            }
 
         </div>
         </>
