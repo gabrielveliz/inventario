@@ -1,0 +1,15 @@
+{
+    "rout":[
+        {"id":1,"nameroute":"/","namemodul":"Login"},
+        {"id":2,"nameroute":"/dash","namemodul":"Consola"},
+        {"id":3,"nameroute":"/Shopping","namemodul":"Shopping"},
+        {"id":4,"nameroute":"/Received","namemodul":"Received"},
+        {"id":5,"nameroute":"/Returns","namemodul":"Returns"},
+        {"id":6,"nameroute":"/Stocks","namemodul":"Stocks"},
+        {"id":7,"nameroute":"/Sales","namemodul":"Sales"},
+        {"id":8,"nameroute":"/Suppliers","namemodul":"Suppliers"},
+        {"id":9,"nameroute":"/Products","namemodul":"Products"},
+        {"id":10,"nameroute":"/Users","namemodul":"Users"},
+        {"id":11,"nameroute":"/Configuration","namemodul":"Configuration"}
+]
+}

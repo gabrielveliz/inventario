@@ -19,8 +19,8 @@ const LoginIngreso = () =>{
         user:user,
         pass:pass,
       });
-      if(response.data.success){navigate('/administration')}
-      //f**********alta agregar el uso de sesiones****************
+      if(response.data.success){navigate('/dash')}
+      //f**********falta agregar el uso de sesiones****************
       //**********************************************
       //************************************* */ */
       
