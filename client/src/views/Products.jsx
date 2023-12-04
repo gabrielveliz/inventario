@@ -1,6 +1,7 @@
 import LayTop from '../components/UpperMenu';
 import LayLeft from '../components/LateralMenu';
 import LayBottom from '../components/Footer';
+import Product from '../components/DetProduct';
 
 
 const Products = () => {
@@ -10,7 +11,7 @@ const Products = () => {
             <LayTop/>
             <div className='contmain'>
                 <LayLeft/>
-                <div>Products</div>
+                <Product/>
             </div>
             <LayBottom/>
         </div>
