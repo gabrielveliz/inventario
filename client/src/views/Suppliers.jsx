@@ -1,7 +1,7 @@
 import LayTop from '../components/UpperMenu';
 import LayLeft from '../components/LateralMenu';
 import LayBottom from '../components/Footer';
-
+import Supp from '../components/DetSuppliers';
 
 const Suppliers = () => {
     return(
@@ -10,7 +10,7 @@ const Suppliers = () => {
             <LayTop/>
             <div className='contmain'>
                 <LayLeft/>
-                <div>Suppliers</div>
+                <Supp/>
             </div>
             <LayBottom/>
         </div>

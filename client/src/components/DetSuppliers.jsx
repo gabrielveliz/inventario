@@ -1,6 +1,6 @@
 import { useState,useEffect} from 'react';
 import axios from 'axios';
-import '../styles/DetProduct.css';
+import '../styles/DetSuppliers.css';
 
 
 const DetProduct = () =>{
@@ -9,7 +9,7 @@ const DetProduct = () =>{
 
     useEffect(()=>{
         //trayendo datos al cargar
-        axios.get('http://localhost:3001/products')
+        axios.get('http://localhost:3001/suppliers')
         .then(response=>{
             if(response.data.success){
                 SetProduct(response.data.items);
@@ -20,13 +20,13 @@ const DetProduct = () =>{
     },[])
     
     //titulos de la tabla
-    let headtable = ["#","Name","Price","Supplier","State"];
+    let headtable = ["#","Name","Contact Person","State"];
 
 
     return(
         <>
-        <div className='consproduct'>
-            <div className='titleconso'><span>List of Products</span></div>
+        <div className='conssuppliers'>
+            <div className='titleconso'><span>List of Suppliers</span></div>
                 <table>
                     {/* cabecera de tabla*/}
                     <thead>
@@ -45,8 +45,7 @@ const DetProduct = () =>{
                         <tr key={data.id} className='datalist'>
                             <td><p>{data.id}</p></td>
                             <td><p>{data.name}</p></td>
-                            <td><p>${data.price}</p></td>
-                            <td><p>{data.name_supplier}</p></td>
+                            <td><p>{data.contact_person}</p></td>
                             <td><p>{data.state===1 ? "Active":"Inactive" }</p></td>
                         </tr>
                     ))

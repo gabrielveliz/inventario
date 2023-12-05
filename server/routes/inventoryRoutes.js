@@ -1,3 +1,4 @@
+//Rutas: URLs que la aplicación puede manejar y cómo deben manejarse. se refiere a las solicitudes HTTP
 const express = require('express');
 const inventoryController = require('../controllers/inventoryController');
 
