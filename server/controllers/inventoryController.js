@@ -12,6 +12,17 @@ const inventoryController = {
             res.status(500).json({ success: false, message: 'Error interno del servidor' });
         }
     },
+    addProduct: async (req,res) =>{
+        const {name,descr,price,state,id_supp} = req.body;
+        try{
+            await inventoryService.addProduct(name,descr,price,state,id_supp);
+            res.status(200).json({success:true})
+        }
+        catch(error){
+            console.error('Error al obtener Products:', error);
+            res.status(500).json({ success: false, message: 'Error interno del servidor' });
+        }
+    },
 
 };
 

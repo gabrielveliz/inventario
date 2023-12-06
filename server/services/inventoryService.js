@@ -11,6 +11,15 @@ const inventoryService = {
         throw error;
     }
     },
+    addProduct: async (name,descr,price,state,id_supp) =>{
+        try{
+            await inventoryModel.addProduct(name,descr,price,state,id_supp);
+        }
+        catch(error){
+            throw error;
+        }
+    },
+
 
 };
 

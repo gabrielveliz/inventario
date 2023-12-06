@@ -5,6 +5,7 @@ const inventoryController = require('../controllers/inventoryController');
 const router = express.Router();
 
 router.get('/', inventoryController.getAllItems);
+router.post('/add',inventoryController.addProduct);
 
 
 module.exports = router;

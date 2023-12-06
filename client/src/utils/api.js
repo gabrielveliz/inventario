@@ -13,8 +13,11 @@ const api = axios.create(
 
 const apiRequests = {
     getProducts:()=>api.get('/products'),
+    addProduct:async(dataproduct)=>api.post('/products/add',dataproduct),
     getSupp:()=>api.get('/suppliers'),
-    postLogin:async(credentials)=>api.post('/users/login',credentials)
+    postLogin:async(credentials)=>api.post('/users/login',credentials),
+    
+
 }
 
 export default apiRequests;

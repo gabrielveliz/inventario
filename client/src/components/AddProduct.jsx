@@ -5,6 +5,12 @@ import '../styles/AddProduct.css';
 const AddProduct = () =>{
     //variable para guardar el arreglo de proveedores
     const[supp,SetSupp] = useState([]);
+    const[addname,setAddname]=useState("");
+    const[adddes,setAdddes]=useState("");
+    const[addprice,setAddprice]=useState("");
+    const[addsupp,setAddsupp]=useState("");
+    const[addstate,setAddstate]=useState("");
+
 
     useEffect(()=>{
         //trayendo datos de los proveedores al cargar
@@ -18,6 +24,22 @@ const AddProduct = () =>{
         })
     },[])
     
+    //funcion para agregar un nuevo producto
+
+    /* ----------------- pendiente recargar componente cuando se agregue un nuevo producto------------ */
+    const addProduct = async () =>{
+        try{
+            const dataproduct = {name:addname,descr:adddes,price:addprice,state:addstate,id_supp:addsupp}
+            setAddname(""),setAdddes(""),setAddprice(""),setAddstate(""),setAddsupp("");
+            hideadd();
+            await apireq.addProduct(dataproduct);
+            
+        }catch(error){
+            console.error('error al agregar producto')
+        }
+        window.location.reload();
+    }
+    
     //funciones que muestran y ocultan el container flotante que permite crear nuevos productos
     function showadd(){
         document.getElementById('contaddproduct').style.display = "flex";
@@ -25,6 +47,7 @@ const AddProduct = () =>{
     function hideadd(){
         document.getElementById('contaddproduct').style.display = "none";
     }
+
 
     return(
         <>
@@ -34,20 +57,40 @@ const AddProduct = () =>{
                     <span className='titleform'>Add New Product</span>
                     <div className='segment'>
                         <div className='titleadd'><span>Name</span></div>
-                        <div className='inputadd'><input type="text" /></div>
+                        <div className='inputadd'><input type="text" value={addname}
+                        onChange={(event)=>{
+                            //registra el cambio del campo name
+                            setAddname(event.target.value)
+                        }}  
+                        /></div>
                     </div>
                     <div className='segment'>
                         <div className='titleadd'><span>Description</span></div>
-                        <div className='inputadd'><input type="text" /></div>
+                        <div className='inputadd'><input type="text"
+                        onChange={(event)=>{
+                            //registra el cambio del campo description
+                            setAdddes(event.target.value)
+                        }} 
+                        /></div>
                     </div>
                     <div className='segment'>
                         <div className='titleadd'><span>Price</span></div>
-                        <div className='inputadd'><input type="text" /></div>
+                        <div className='inputadd'><input type="text" 
+                        onChange={(event)=>{
+                            //registra el cambio del campo price
+                            setAddprice(event.target.value)
+                        }} 
+                        /></div>
                     </div>
                     <div className='segment'>
                         <div className='titleadd'><span>Supplier</span></div>
                         <div className='inputadd'>
-                            <select name="selecsupp" id="selecsupp">
+                            <select name="selecsupp" id="selecsupp" value={addsupp}
+                            //registra el cambio del campo suppliers
+                            onChange={(event)=>{
+                            setAddsupp(event.target.value)
+                        }} >
+                            <option value="">Choose a Supplier</option>
 
                             {//funcion para listar los proveedores para mas tarde enviar el id
                             supp.map((data)=>(
@@ -59,14 +102,19 @@ const AddProduct = () =>{
                     <div className='segment'>
                         <div className='titleadd'><span>State</span></div>
                         <div className='inputadd'>
-                            <select name="" id="">
+                            <select name="" id="" value={addstate}
+                            onChange={(event)=>{
+                            //registra el cambio del campo state
+                            setAddstate(event.target.value)
+                        }} >
+                                <option value="">Choose a State</option>
                                 <option value="1">Active</option>
                                 <option value="0">Inactive</option>
                             </select>
                         </div>
                     </div>
                     <div className='segmentbutton'>
-                        <button>Save</button><button onClick={hideadd}>Cancel</button>
+                        <button onClick={ ()=> addProduct() }>Save</button><button onClick={hideadd}>Cancel</button>
                     </div>
                 </div>
             </div>
