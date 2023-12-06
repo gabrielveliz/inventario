@@ -1,5 +1,6 @@
 import { useState,useEffect} from 'react';
 import apireq from '../utils/api';
+import AddProduct from '../components/AddProduct';
 import '../styles/DetProduct.css';
 
 
@@ -27,6 +28,7 @@ const DetProduct = () =>{
         <>
         <div className='consproduct'>
             <div className='titleconso'><span>List of Products</span></div>
+            <AddProduct></AddProduct>
                 <table>
                     {/* cabecera de tabla*/}
                     <thead>

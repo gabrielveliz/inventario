@@ -3,10 +3,11 @@ import apireq from '../utils/api';
 import '../styles/AddProduct.css';
 
 const AddProduct = () =>{
+    //variable para guardar el arreglo de proveedores
     const[supp,SetSupp] = useState([]);
 
     useEffect(()=>{
-        //trayendo datos al cargar
+        //trayendo datos de los proveedores al cargar
         apireq.getSupp()
         .then(response=>{
             if(response.data.success){
@@ -16,7 +17,8 @@ const AddProduct = () =>{
             }
         })
     },[])
-
+    
+    //funciones que muestran y ocultan el container flotante que permite crear nuevos productos
     function showadd(){
         document.getElementById('contaddproduct').style.display = "flex";
     }
@@ -26,7 +28,7 @@ const AddProduct = () =>{
 
     return(
         <>
-            <button onClick={showadd}>Add</button>
+        <div className='buttonadd'><button onClick={showadd}>Add Product</button></div>
             <div id='contaddproduct' className="contaddproduct">
                 <div className='contformadd'>
                     <span className='titleform'>Add New Product</span>
@@ -46,7 +48,9 @@ const AddProduct = () =>{
                         <div className='titleadd'><span>Supplier</span></div>
                         <div className='inputadd'>
                             <select name="selecsupp" id="selecsupp">
-                            {supp.map((data)=>(
+
+                            {//funcion para listar los proveedores para mas tarde enviar el id
+                            supp.map((data)=>(
                                 <option key={data.id} value={data.id}>{data.name}</option>
                             ))}
                             </select>

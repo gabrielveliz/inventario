@@ -6,6 +6,9 @@ import pas from '../assets/images/candado.png'
 import gv from '../assets/images/GV.png'
 import '../styles/LoginIngreso.css'
 
+      /* **********falta agregar el uso de sesiones****************
+      **********************************************
+      ************************************* */
 
 const LoginIngreso = () =>{
   const navigate = useNavigate();
@@ -20,9 +23,6 @@ const LoginIngreso = () =>{
       const response = await apireq.postLogin(credentials);
       console.log(response)
       if(response.data.success){navigate('/dash')}
-      //f**********falta agregar el uso de sesiones****************
-      //**********************************************
-      //************************************* */ */
       
     }catch(error){
       setAlert("Incorrect user or password");

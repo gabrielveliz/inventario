@@ -14,6 +14,7 @@
     width: 50%;
     background-color: white;
     padding: 2rem;
+    border-radius: 0.5rem;
 }
 .titleform{
     font-size: 2rem;
@@ -30,4 +31,13 @@
     width: 100%;
     font-size: 1.5rem;
     padding: 0.2rem;
+}
+.buttonadd{
+    padding: 2rem 0rem;
+    width: 100%;
+} 
+.segmentbutton{
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
 }
