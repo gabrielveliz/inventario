@@ -1,18 +1,18 @@
 import { useState,useEffect} from 'react';
-import axios from 'axios';
+import apireq from '../utils/api';
 import '../styles/DetSuppliers.css';
 
 
 const DetProduct = () =>{
     //variable de estado con un arreglo vacio para guardar la consulta que se realizara con axios
-    const[product,SetProduct] = useState([]);
+    const[supp,SetSupp] = useState([]);
 
     useEffect(()=>{
         //trayendo datos al cargar
-        axios.get('http://localhost:3001/suppliers')
+        apireq.getSupp()
         .then(response=>{
             if(response.data.success){
-                SetProduct(response.data.items);
+                SetSupp(response.data.items);
             }else{
                 console.error('Error al obtener datos del servidor: ',response.data.message);
             }
@@ -41,7 +41,7 @@ const DetProduct = () =>{
                 <tbody>
                     {/* cuerpo de la tabla con la lista de productos*/}
                 {
-                    product.map((data)=>(
+                    supp.map((data)=>(
                         <tr key={data.id} className='datalist'>
                             <td><p>{data.id}</p></td>
                             <td><p>{data.name}</p></td>

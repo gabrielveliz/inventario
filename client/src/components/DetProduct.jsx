@@ -1,5 +1,5 @@
 import { useState,useEffect} from 'react';
-import axios from 'axios';
+import apireq from '../utils/api';
 import '../styles/DetProduct.css';
 
 
@@ -9,7 +9,7 @@ const DetProduct = () =>{
 
     useEffect(()=>{
         //trayendo datos al cargar
-        axios.get('http://localhost:3001/products')
+        apireq.getProducts()
         .then(response=>{
             if(response.data.success){
                 SetProduct(response.data.items);

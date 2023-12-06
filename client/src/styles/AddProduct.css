@@ -1,0 +1,33 @@
+.contaddproduct{
+    background-color: rgba(29, 29, 29, 0.288);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+.contformadd{
+    width: 50%;
+    background-color: white;
+    padding: 2rem;
+}
+.titleform{
+    font-size: 2rem;
+    font-weight: 700;
+}
+.segment{
+    padding: 1rem 0rem;
+}
+.titleadd{
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+.inputadd input,.inputadd select{
+    width: 100%;
+    font-size: 1.5rem;
+    padding: 0.2rem;
+}

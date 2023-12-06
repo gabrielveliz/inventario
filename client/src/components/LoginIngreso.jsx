@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
-import axios from 'axios';
+import apireq from '../utils/api';
 import us from '../assets/images/usuario.png'
 import pas from '../assets/images/candado.png'
 import gv from '../assets/images/GV.png'
@@ -12,19 +12,20 @@ const LoginIngreso = () =>{
 
   const[user,setUser]=useState("");
   const[pass,setPass]=useState("");
+  const[alert,setAlert]=useState("");
 
   const checklogin = async () =>{
     try{
-      const response = await axios.post('http://localhost:3001/users/login',{
-        user:user,
-        pass:pass,
-      });
+      const credentials = {user:user,pass:pass}
+      const response = await apireq.postLogin(credentials);
+      console.log(response)
       if(response.data.success){navigate('/dash')}
       //f**********falta agregar el uso de sesiones****************
       //**********************************************
       //************************************* */ */
       
     }catch(error){
+      setAlert("Incorrect user or password");
       console.log('error',error.mesagge);
     }
   }
@@ -42,7 +43,9 @@ const LoginIngreso = () =>{
         onChange={(event)=>{
           setPass(event.target.value)
         }} 
-        placeholder='Ingresar contraseña...'/></div>
+        placeholder='Ingresar contraseña...'/>
+        </div>
+        <span className='alertlog'>{alert}</span>
           <div className='checkcontr'>
             <div className='chec'><input type="checkbox" id="scales" name="scales" /><label>Recordarme</label></div>
             <div className='olv'><span>¿Olvido su contraseña?</span></div>
