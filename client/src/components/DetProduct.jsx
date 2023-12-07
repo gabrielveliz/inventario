@@ -3,10 +3,10 @@ import apireq from '../utils/api';
 import AddProduct from '../components/AddProduct';
 import '../styles/DetProduct.css';
 
-
 const DetProduct = () =>{
     //variable de estado con un arreglo vacio para guardar la consulta que se realizara con axios
     const[product,SetProduct] = useState([]);
+
 
     useEffect(()=>{
         //trayendo datos al cargar
@@ -20,7 +20,16 @@ const DetProduct = () =>{
         })
     },[])
     
-    //titulos de la tabla
+    //funcion para eliminar datos
+    const delProduct = async (id) =>{
+        try{
+            await apireq.deleteProduct(id);
+            
+        }catch(error){
+            console.error('error al eliminar producto id: '+ id)
+        }
+    }
+    //titulos de las tablas, no esta incluida la de editar y eliminar en este caso "Action"
     let headtable = ["#","Name","Price","Supplier","State"];
 
 
@@ -38,6 +47,7 @@ const DetProduct = () =>{
                                     <th key={index}><p>{data}</p></th>
                                 ))
                             }
+                            <th colSpan="2"><p>Action</p></th>
                         </tr>
                     </thead>
                 <tbody>
@@ -50,6 +60,8 @@ const DetProduct = () =>{
                             <td><p>${data.price}</p></td>
                             <td><p>{data.name_supplier}</p></td>
                             <td><p>{data.state===1 ? "Active":"Inactive" }</p></td>
+                            <td className='center'><button>Edit</button></td>
+                            <td className='center red'><button onClick={()=>delProduct(data.id)}>Delete</button></td>
                         </tr>
                     ))
                 }

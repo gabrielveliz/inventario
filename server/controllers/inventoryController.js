@@ -23,6 +23,19 @@ const inventoryController = {
             res.status(500).json({ success: false, message: 'Error interno del servidor' });
         }
     },
+    delProduct: async (req,res) =>{
+        const id = req.params.id;
+
+        try{
+            await inventoryService.delProduct(id);
+            console.log(id)
+            res.status(200).json({success:true})
+        }
+        catch(error){
+            console.error('Error al eliminar producto:', error);
+            res.status(500).json({ success: false, message: 'Error interno del servidor' });
+        }
+    },
 
 };
 

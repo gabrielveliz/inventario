@@ -29,6 +29,20 @@ const inventoryModel = {
         }  
         )
     },
+    delProduct:(id) =>{
+        return new Promise((resolve,reject)=> {
+            const query = "DELETE FROM Products WHERE id=?";
+            database.query(query,[id]),(error,results) =>{
+                if(error){
+                    reject(error);
+                }
+                else{
+                    resolve(results);
+                }
+            }
+        }  
+        )
+    },
 }
 
 module.exports = inventoryModel;

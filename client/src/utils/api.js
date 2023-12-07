@@ -12,9 +12,16 @@ const api = axios.create(
 );
 
 const apiRequests = {
+
+    //apartado Productos
     getProducts:()=>api.get('/products'),
     addProduct:async(dataproduct)=>api.post('/products/add',dataproduct),
+    deleteProduct:async(id)=>await api.delete(`/products/delete/${id}`),
+
+    //apartado proveedores
     getSupp:()=>api.get('/suppliers'),
+
+    //apartado Login y usuarios
     postLogin:async(credentials)=>api.post('/users/login',credentials),
     
 

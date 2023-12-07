@@ -19,6 +19,14 @@ const inventoryService = {
             throw error;
         }
     },
+    delProduct: async (id) =>{
+        try{
+            await inventoryModel.delProduct(id);
+        }
+        catch(error){
+            throw error;
+        }
+    },
 
 
 };

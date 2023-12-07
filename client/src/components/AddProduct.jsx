@@ -37,7 +37,7 @@ const AddProduct = () =>{
         }catch(error){
             console.error('error al agregar producto')
         }
-        window.location.reload();
+
     }
     
     //funciones que muestran y ocultan el container flotante que permite crear nuevos productos
