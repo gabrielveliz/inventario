@@ -66,7 +66,7 @@ const AddProduct = () =>{
                     </div>
                     <div className='segment'>
                         <div className='titleadd'><span>Description</span></div>
-                        <div className='inputadd'><input type="text"
+                        <div className='inputadd'><input type="text" value={adddes}
                         onChange={(event)=>{
                             //registra el cambio del campo description
                             setAdddes(event.target.value)
@@ -75,7 +75,7 @@ const AddProduct = () =>{
                     </div>
                     <div className='segment'>
                         <div className='titleadd'><span>Price</span></div>
-                        <div className='inputadd'><input type="text" 
+                        <div className='inputadd'><input type="text"  value={addprice}
                         onChange={(event)=>{
                             //registra el cambio del campo price
                             setAddprice(event.target.value)

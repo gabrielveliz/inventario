@@ -1,11 +1,13 @@
 import { useState,useEffect} from 'react';
 import apireq from '../utils/api';
 import AddProduct from '../components/AddProduct';
+import DeleteProduct from '../components/DelProduct';
 import '../styles/DetProduct.css';
 
 const DetProduct = () =>{
     //variable de estado con un arreglo vacio para guardar la consulta que se realizara con axios
     const[product,SetProduct] = useState([]);
+    
 
 
     useEffect(()=>{
@@ -20,15 +22,7 @@ const DetProduct = () =>{
         })
     },[])
     
-    //funcion para eliminar datos
-    const delProduct = async (id) =>{
-        try{
-            await apireq.deleteProduct(id);
-            
-        }catch(error){
-            console.error('error al eliminar producto id: '+ id)
-        }
-    }
+
     //titulos de las tablas, no esta incluida la de editar y eliminar en este caso "Action"
     let headtable = ["#","Name","Price","Supplier","State"];
 
@@ -38,6 +32,7 @@ const DetProduct = () =>{
         <div className='consproduct'>
             <div className='titleconso'><span>List of Products</span></div>
             <AddProduct></AddProduct>
+            
                 <table>
                     {/* cabecera de tabla*/}
                     <thead>
@@ -61,7 +56,7 @@ const DetProduct = () =>{
                             <td><p>{data.name_supplier}</p></td>
                             <td><p>{data.state===1 ? "Active":"Inactive" }</p></td>
                             <td className='center'><button>Edit</button></td>
-                            <td className='center red'><button onClick={()=>delProduct(data.id)}>Delete</button></td>
+                            <td className='center'><DeleteProduct idprod={data.id}></DeleteProduct></td>
                         </tr>
                     ))
                 }
