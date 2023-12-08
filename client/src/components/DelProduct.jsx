@@ -4,7 +4,7 @@ import '../styles/DelProduct.css';
 
 
 // eslint-disable-next-line react/prop-types
-const DeleteProduct = ({idprod}) =>{
+const DeleteProduct = ({idprod,refreshdata}) =>{
 
     //esta variable es para crear un id dinamico para el contenedor flotante de eliminar producto
     let idcontainer = "contdelproduct"+idprod;
@@ -13,9 +13,9 @@ const DeleteProduct = ({idprod}) =>{
         const delProduct = async (id) =>{
             try{
                 hidedel()
-                console.log("se elimina id "+id)
+                console.log("se elimina id "+id);
                 await apireq.deleteProduct(id);
-                
+                refreshdata;// actualizamos la lista de productos
             }catch(error){
                 console.error('error al eliminar producto id: '+ id)
             }

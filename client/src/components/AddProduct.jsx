@@ -27,13 +27,13 @@ const AddProduct = () =>{
     //funcion para agregar un nuevo producto
 
     /* ----------------- pendiente recargar componente cuando se agregue un nuevo producto------------ */
-    const addProduct = async () =>{
+    const addProduct = async (refreshdata) =>{
         try{
             const dataproduct = {name:addname,descr:adddes,price:addprice,state:addstate,id_supp:addsupp}
             setAddname(""),setAdddes(""),setAddprice(""),setAddstate(""),setAddsupp("");
             hideadd();
             await apireq.addProduct(dataproduct);
-            
+            refreshdata; // actualizamos la lista de productos
         }catch(error){
             console.error('error al agregar producto')
         }

@@ -9,9 +9,7 @@ const DetProduct = () =>{
     const[product,SetProduct] = useState([]);
     
 
-
-    useEffect(()=>{
-        //trayendo datos al cargar
+    function refreshdata(){
         apireq.getProducts()
         .then(response=>{
             if(response.data.success){
@@ -20,7 +18,12 @@ const DetProduct = () =>{
                 console.error('Error al obtener datos del servidor: ',response.data.message);
             }
         })
-    },[])
+    } 
+
+    useEffect(()=>{
+        //trayendo datos al cargar
+        refreshdata();
+    },[product])
     
 
     //titulos de las tablas, no esta incluida la de editar y eliminar en este caso "Action"
@@ -31,7 +34,7 @@ const DetProduct = () =>{
         <>
         <div className='consproduct'>
             <div className='titleconso'><span>List of Products</span></div>
-            <AddProduct></AddProduct>
+            <AddProduct refreshdata={refreshdata}></AddProduct>
             
                 <table>
                     {/* cabecera de tabla*/}
@@ -56,7 +59,7 @@ const DetProduct = () =>{
                             <td><p>{data.name_supplier}</p></td>
                             <td><p>{data.state===1 ? "Active":"Inactive" }</p></td>
                             <td className='center'><button>Edit</button></td>
-                            <td className='center'><DeleteProduct idprod={data.id}></DeleteProduct></td>
+                            <td className='center'><DeleteProduct idprod={data.id} refreshdata={refreshdata}></DeleteProduct></td>
                         </tr>
                     ))
                 }
