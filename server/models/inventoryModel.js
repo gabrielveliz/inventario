@@ -5,7 +5,7 @@ const database = require('../config/database');
 const inventoryModel = {
     getAllItems: () => {
         return new Promise((resolve, reject) => {
-        const query = 'SELECT products.id AS "id",products.name AS "name",products.price AS "price",products.state AS "state",suppliers.name AS "name_supplier" FROM products JOIN suppliers WHERE products.id_supp=suppliers.id ORDER BY id asc;';
+        const query = 'SELECT products.id AS "id",products.descr AS "des",products.name AS "name",products.price AS "price",products.state AS "state",suppliers.name AS "name_supplier", products.id_supp AS "id_sup" FROM products JOIN suppliers WHERE products.id_supp=suppliers.id ORDER BY id asc;';
         database.query(query, (error, results) => {
             if (error) {
             reject(error);

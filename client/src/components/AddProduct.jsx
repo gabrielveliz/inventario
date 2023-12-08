@@ -1,15 +1,12 @@
 import { useState,useEffect} from 'react';
 import apireq from '../utils/api';
+
 import '../styles/AddProduct.css';
 
-const AddProduct = () =>{
+// eslint-disable-next-line react/prop-types
+const AddProduct = ({refreshdata,title,addname,setAddname,adddes,setAdddes,addprice,setAddprice,addsupp,setAddsupp,addstate,setAddstate,hideadd}) =>{
     //variable para guardar el arreglo de proveedores
     const[supp,SetSupp] = useState([]);
-    const[addname,setAddname]=useState("");
-    const[adddes,setAdddes]=useState("");
-    const[addprice,setAddprice]=useState("");
-    const[addsupp,setAddsupp]=useState("");
-    const[addstate,setAddstate]=useState("");
 
 
     useEffect(()=>{
@@ -25,9 +22,7 @@ const AddProduct = () =>{
     },[])
     
     //funcion para agregar un nuevo producto
-
-    /* ----------------- pendiente recargar componente cuando se agregue un nuevo producto------------ */
-    const addProduct = async (refreshdata) =>{
+    const addProduct = async () =>{
         try{
             const dataproduct = {name:addname,descr:adddes,price:addprice,state:addstate,id_supp:addsupp}
             setAddname(""),setAdddes(""),setAddprice(""),setAddstate(""),setAddsupp("");
@@ -37,24 +32,16 @@ const AddProduct = () =>{
         }catch(error){
             console.error('error al agregar producto')
         }
-
     }
     
-    //funciones que muestran y ocultan el container flotante que permite crear nuevos productos
-    function showadd(){
-        document.getElementById('contaddproduct').style.display = "flex";
-    }
-    function hideadd(){
-        document.getElementById('contaddproduct').style.display = "none";
-    }
+
 
 
     return(
         <>
-        <div className='buttonadd'><button onClick={showadd}>Add Product</button></div>
             <div id='contaddproduct' className="contaddproduct">
-                <div className='contformadd'>
-                    <span className='titleform'>Add New Product</span>
+            <div className='contformadd'>
+                    <span className='titleform'>{title}</span>
                     <div className='segment'>
                         <div className='titleadd'><span>Name</span></div>
                         <div className='inputadd'><input type="text" value={addname}
