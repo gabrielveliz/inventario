@@ -4,7 +4,7 @@ import apireq from '../utils/api';
 import '../styles/AddProduct.css';
 
 // eslint-disable-next-line react/prop-types
-const AddProduct = ({refreshdata,title,addname,setAddname,adddes,setAdddes,addprice,setAddprice,addsupp,setAddsupp,addstate,setAddstate,hideadd}) =>{
+const AddProduct = ({refreshdata,title,addname,setAddname,adddes,setAdddes,addprice,setAddprice,addsupp,setAddsupp,addstate,setAddstate,hideadd,idprod}) =>{
     //variable para guardar el arreglo de proveedores
     const[supp,SetSupp] = useState([]);
 
@@ -23,20 +23,26 @@ const AddProduct = ({refreshdata,title,addname,setAddname,adddes,setAdddes,addpr
     
     //funcion para agregar un nuevo producto
     const addProduct = async () =>{
+        //primer if es para editar
+        if(idprod>0){
+            const dataproduct = {idprod:idprod,name:addname,descr:adddes,price:addprice,state:addstate,id_supp:addsupp}
+            hideadd();
+            await apireq.editProduct(dataproduct);
+            refreshdata; // actualizamos la lista de productos  
+        }else{
+            //else para agregar un nuevo producto
         try{
+        
             const dataproduct = {name:addname,descr:adddes,price:addprice,state:addstate,id_supp:addsupp}
-            setAddname(""),setAdddes(""),setAddprice(""),setAddstate(""),setAddsupp("");
             hideadd();
             await apireq.addProduct(dataproduct);
             refreshdata; // actualizamos la lista de productos
         }catch(error){
             console.error('error al agregar producto')
         }
+        }
     }
     
-
-
-
     return(
         <>
             <div id='contaddproduct' className="contaddproduct">

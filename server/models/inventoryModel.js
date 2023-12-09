@@ -43,6 +43,20 @@ const inventoryModel = {
         }  
         )
     },
+    editProduct:(idprod,name,descr,price,state,id_supp) =>{
+        return new Promise((resolve,reject)=> {
+            const query = "UPDATE products SET name=?,descr=?,price=?,state=?,id_supp=? WHERE id=?";
+            database.query(query,[name,descr,price,state,id_supp,idprod]),(error,results) =>{
+                if(error){
+                    reject(error);
+                }
+                else{
+                    resolve(results);
+                }
+            }
+        }  
+        )
+    },
 }
 
 module.exports = inventoryModel;

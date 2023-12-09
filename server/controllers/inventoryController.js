@@ -28,11 +28,22 @@ const inventoryController = {
 
         try{
             await inventoryService.delProduct(id);
-            console.log(id)
             res.status(200).json({success:true})
         }
         catch(error){
             console.error('Error al eliminar producto:', error);
+            res.status(500).json({ success: false, message: 'Error interno del servidor' });
+        }
+    },
+    editProduct: async (req,res) =>{
+        const {idprod,name,descr,price,state,id_supp} = req.body;
+
+        try{
+            await inventoryService.editProduct(idprod,name,descr,price,state,id_supp);
+            res.status(200).json({success:true})
+        }
+        catch(error){
+            console.error('Error al editar producto:', error);
             res.status(500).json({ success: false, message: 'Error interno del servidor' });
         }
     },

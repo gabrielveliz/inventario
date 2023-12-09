@@ -27,6 +27,14 @@ const inventoryService = {
             throw error;
         }
     },
+    editProduct: async (idprod,name,descr,price,state,id_supp) =>{
+        try{
+            await inventoryModel.editProduct(idprod,name,descr,price,state,id_supp);
+        }
+        catch(error){
+            throw error;
+        }
+    },
 
 
 };

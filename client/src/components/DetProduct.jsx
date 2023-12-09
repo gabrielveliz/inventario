@@ -39,7 +39,6 @@ const DetProduct = () =>{
     function hide(){
         document.getElementById('contaddproduct').style.display = "none";
         setIdprod(""),setAddname(""),setAdddes(""),setAddprice(""),setAddstate(""),setAddsupp("");
-
     }
 
     function addproduct(){
@@ -53,7 +52,7 @@ const DetProduct = () =>{
         setAddprice(price);
         setAddsupp(sup)
         setAddstate(state);
-        setMess("Edit a Product");
+        setMess("Edit Product");
         show();
     }
     //titulos de las tablas, no esta incluida la de editar y eliminar en este caso "Action"
@@ -65,7 +64,7 @@ const DetProduct = () =>{
             <div className='titleconso'><span>List of Products</span></div>
             <div className='buttonadd'><button onClick={()=>addproduct()}>Add Product</button></div>
             <AddProduct refreshdata={refreshdata} hideadd={hide} 
-            title={mess}
+            idprod={idprod} title={mess}
                     addname={addname} setAddname={setAddname}
                     adddes={adddes} setAdddes={setAdddes}
                     addprice={addprice} setAddprice={setAddprice}
@@ -96,7 +95,7 @@ const DetProduct = () =>{
                             <td><p>{data.name_supplier}</p></td>
                             <td><p>{data.state===1 ? "Active":"Inactive" }</p></td>
                             <td className='center'><button onClick={()=>edit(data.id,data.name,data.des,data.price,data.id_sup,data.state)}>Edit</button></td>
-                            <td className='center'><DeleteProduct idprod={data.id} refreshdata={refreshdata}></DeleteProduct></td>
+                            <td className='center'><DeleteProduct idprod={data.id} refreshdata={refreshdata} prod={data.name}></DeleteProduct></td>
                         </tr>
                     ))
                 }
