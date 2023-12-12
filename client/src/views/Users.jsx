@@ -1,6 +1,7 @@
 import LayTop from '../components/UpperMenu';
 import LayLeft from '../components/LateralMenu';
 import LayBottom from '../components/Footer';
+import DetUsers from '../components/DetUsers';
 
 
 const Users = () => {
@@ -10,7 +11,7 @@ const Users = () => {
             <LayTop/>
             <div className='contmain'>
                 <LayLeft/>
-                <div>Users</div>
+                <DetUsers/>
             </div>
             <LayBottom/>
         </div>

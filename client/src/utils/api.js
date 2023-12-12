@@ -24,6 +24,8 @@ const apiRequests = {
 
     //apartado Login y usuarios
     postLogin:async(credentials)=>api.post('/users/login',credentials),
+    getusers:async()=>api.get('/users/getusers'),
+
     
 
 }

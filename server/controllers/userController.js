@@ -1,4 +1,6 @@
+//controlador para seccion usuarios
 const db = require('../config/database');
+const userService = require('../services/userService.js');
 
 const userController = {
     login:(req,res) =>{
@@ -24,6 +26,15 @@ const userController = {
                 }
             }
         });
+    },
+    getAllUsers: async (req, res) => {
+        try {
+            const items = await userService.getAllUsers();
+            res.status(200).json({ success: true, items });
+        } catch (error) {
+            console.error('Error al obtener Products:', error);
+            res.status(500).json({ success: false, message: 'Error interno del servidor' });
+        }
     },
 };
 
