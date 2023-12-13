@@ -1,6 +1,6 @@
 import { useState,useEffect} from 'react';
 import apireq from '../utils/api';
-import '../styles/DetSuppliers.css';
+
 
 
 const DetProduct = () =>{
@@ -25,8 +25,9 @@ const DetProduct = () =>{
 
     return(
         <>
-        <div className='conssuppliers'>
+        <div className='conslist'>
             <div className='titleconso'><span>List of Suppliers</span></div>
+            <div className='buttonadd'><button>Add Supplier</button></div>
                 <table>
                     {/* cabecera de tabla*/}
                     <thead>
@@ -36,6 +37,7 @@ const DetProduct = () =>{
                                     <th key={index}><p>{data}</p></th>
                                 ))
                             }
+                            <th colSpan="2"><p>Action</p></th>
                         </tr>
                     </thead>
                 <tbody>
@@ -47,6 +49,8 @@ const DetProduct = () =>{
                             <td><p>{data.name}</p></td>
                             <td><p>{data.contact_person}</p></td>
                             <td><p>{data.state===1 ? "Active":"Inactive" }</p></td>
+                            <td className='center'><button>Edit</button></td>
+                            <td className='center'><button>Delete</button></td>
                         </tr>
                     ))
                 }

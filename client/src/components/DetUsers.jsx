@@ -23,6 +23,9 @@ const DetUsers = () =>{
 
         return(
         <>
+        <div className='conslist'>
+            <div className='titleconso'><span>List of Users</span></div>
+            <div className='buttonadd'><button>Add User</button></div>
             <table>
                 {/* cabecera de tabla*/}
                 <thead>
@@ -43,14 +46,15 @@ const DetUsers = () =>{
                             <td><p>{data.username}</p></td>
                             <td><p>{data.state === 0 ? "Active" : "Block"}</p></td>
                             <td><p>{data.role}</p></td>
-                            <td><button>Edit</button></td>
-                            <td><button>Delete</button></td>
+                            <td className='center'><button>Edit</button></td>
+                            <td className='center'><button>Delete</button></td>
                         </tr>
 
                         ))
                 }
                 </tbody>
             </table>
+        </div>
         </>
             );
     

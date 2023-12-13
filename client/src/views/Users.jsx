@@ -11,7 +11,7 @@ const Users = () => {
             <LayTop/>
             <div className='contmain'>
                 <LayLeft/>
-                <DetUsers/>
+                    <DetUsers/>
             </div>
             <LayBottom/>
         </div>

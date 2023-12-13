@@ -2,7 +2,7 @@ import { useState,useEffect} from 'react';
 import apireq from '../utils/api';
 import AddProduct from '../components/AddProduct';
 import DeleteProduct from '../components/DelProduct';
-import '../styles/DetProduct.css';
+
 
 const DetProduct = () =>{
     //variable de estado con un arreglo vacio para guardar la consulta que se realizara con axios
@@ -60,7 +60,7 @@ const DetProduct = () =>{
 
     return(
         <>
-        <div className='consproduct'>
+        <div className='conslist'>
             <div className='titleconso'><span>List of Products</span></div>
             <div className='buttonadd'><button onClick={()=>addproduct()}>Add Product</button></div>
             <AddProduct refreshdata={refreshdata} hideadd={hide} 
