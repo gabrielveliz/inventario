@@ -1,20 +1,14 @@
 //controlador para seccion usuarios
-const db = require('../config/database');
-const userService = require('../services/userService.js');
+
+const userService = require('../services/userService');
 
 const userController = {
-    login:(req,res) =>{
+    login: async (req, res) => {
         const {user,pass} = req.body;
-        const querylogin='SELECT * FROM users WHERE user = ? AND pass = ?';
-
-        db.query(querylogin,[user,pass],(err,result)=>{
-            if(err){
-                console.error('Query failed :',err);
-                res.status(500).send('Server error');
-            }
-            else
-            {
-                if(result.length>0)
+        try {
+            const results = await userService.login(user,pass);
+            
+            if(results.length>0)
                 {
                     res.status(200).send({ success: true });
 
@@ -24,9 +18,12 @@ const userController = {
                     res.status(401).send({ success: false });
 
                 }
-            }
-        });
+        } catch (error) {
+            console.error('Error al obtener respuesta:', error);
+            res.status(500).json({ success: false, message: 'Error interno del servidor' });
+        }
     },
+
     getAllUsers: async (req, res) => {
         try {
             const items = await userService.getAllUsers();

@@ -21,7 +21,6 @@ const LoginIngreso = () =>{
     try{
       const credentials = {user:user,pass:pass}
       const response = await apireq.postLogin(credentials);
-      console.log(response)
       if(response.data.success){navigate('/dash')}
       
     }catch(error){
