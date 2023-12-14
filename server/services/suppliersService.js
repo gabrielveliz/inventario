@@ -26,6 +26,14 @@ const suppliersService = {
             throw error;
         }
     },
+    delSupplier: async (id) =>{
+        try{
+            await suppliersModel.delSupplier(id);
+        }
+        catch(error){
+            throw error;
+        }
+    },
 
 };
 

@@ -20,9 +20,11 @@ const apiRequests = {
     editProduct:async(dataproduct)=>api.put('/products/edit',dataproduct),
 
     //apartado proveedores
-    getSupp:()=>api.get('/suppliers'),
-    addsupp:async(datasupplier)=>api.post('/suppliers/add',datasupplier),
-    editSupp:async(datasupplier)=>api.put('/suppliers/edit',datasupplier),
+    addsupp:async(datasupplier)=>api.post('/suppliers/add',datasupplier), //C
+    getSupp:()=>api.get('/suppliers'),                                    //R
+    editSupp:async(datasupplier)=>api.put('/suppliers/edit',datasupplier),//U
+    deleteSupp:async(id)=>await api.delete(`/suppliers/delete/${id}`),    //D
+
 
     //apartado Login y usuarios
     postLogin:async(credentials)=>api.post('/users/login',credentials),

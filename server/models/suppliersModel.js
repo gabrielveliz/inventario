@@ -42,6 +42,20 @@ const suppliersModel = {
         }  
         )
     },
+    delSupplier:(id) =>{
+        return new Promise((resolve,reject)=> {
+            const query = "DELETE FROM suppliers WHERE id=?";
+            database.query(query,[id]),(error,results) =>{
+                if(error){
+                    reject(error);
+                }
+                else{
+                    resolve(results);
+                }
+            }
+        }  
+        )
+    },
 }
 
 module.exports = suppliersModel;

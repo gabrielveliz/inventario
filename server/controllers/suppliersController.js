@@ -35,6 +35,18 @@ const suppliersController = {
             res.status(500).json({ success: false, message: 'Error interno del servidor' });
         }
     },
+    delSupplier: async (req,res) =>{
+        const id = req.params.id;
+
+        try{
+            await suppliersService.delSupplier(id);
+            res.status(200).json({success:true})
+        }
+        catch(error){
+            console.error('Error al eliminar producto:', error);
+            res.status(500).json({ success: false, message: 'Error interno del servidor' });
+        }
+    },
 
 };
 

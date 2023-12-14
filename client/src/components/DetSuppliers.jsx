@@ -1,7 +1,7 @@
 import { useState,useEffect} from 'react';
 import apireq from '../utils/api';
 import AddEditSupp from './AddEditSupp';
-
+import DelSupplier from './DelSupplier';
 
 const DetSuppliers = () =>{
     //variable de estado con un arreglo vacio para guardar la consulta que se realizara con axios
@@ -103,7 +103,7 @@ const DetSuppliers = () =>{
                             <td><p>{data.contact_person}</p></td>
                             <td><p>{data.state===1 ? "Active":"Inactive" }</p></td>
                             <td className='center'><button onClick={()=>edit(data.id,data.name,data.address,data.contact_person,data.contact_number,data.state)}>Edit</button></td>
-                            <td className='center'><button>Delete</button></td>
+                            <td className='center'><DelSupplier idsupp={data.id} refreshdata={refreshdata} supplier={data.name}/></td>
                         </tr>
                     ))
                 }
