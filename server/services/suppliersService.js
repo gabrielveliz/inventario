@@ -10,6 +10,22 @@ const suppliersService = {
         throw error;
     }
     },
+    addSupplier: async (name,address,contact_person,contact_number,state) =>{
+        try{
+            await suppliersModel.addSupplier(name,address,contact_person,contact_number,state);
+        }
+        catch(error){
+            throw error;
+        }
+    },
+    editSupplier: async (id,name,address,contact_person,contact_number,state) =>{
+        try{
+            await suppliersModel.editSupplier(id,name,address,contact_person,contact_number,state);
+        }
+        catch(error){
+            throw error;
+        }
+    },
 
 };
 

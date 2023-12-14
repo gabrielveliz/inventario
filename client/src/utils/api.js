@@ -17,10 +17,12 @@ const apiRequests = {
     getProducts:()=>api.get('/products'),
     addProduct:async(dataproduct)=>api.post('/products/add',dataproduct),
     deleteProduct:async(id)=>await api.delete(`/products/delete/${id}`),
-    editProduct:async(dataproduct)=>api.put('/products/edit/',dataproduct),
+    editProduct:async(dataproduct)=>api.put('/products/edit',dataproduct),
 
     //apartado proveedores
     getSupp:()=>api.get('/suppliers'),
+    addsupp:async(datasupplier)=>api.post('/suppliers/add',datasupplier),
+    editSupp:async(datasupplier)=>api.put('/suppliers/edit',datasupplier),
 
     //apartado Login y usuarios
     postLogin:async(credentials)=>api.post('/users/login',credentials),
