@@ -44,6 +44,16 @@ const suppliersModel = {
     },
     delSupplier:(id) =>{
         return new Promise((resolve,reject)=> {
+        //primera query elimina los productos que estan asociados al Supplier
+        const queryprod = "DELETE FROM products WHERE id_supp=?";
+            database.query(queryprod,[id]),(error,results) =>{
+                if(error){
+                    reject(error);
+                }
+                else{
+                    resolve(results);
+                }
+            }
             const query = "DELETE FROM suppliers WHERE id=?";
             database.query(query,[id]),(error,results) =>{
                 if(error){
@@ -53,6 +63,7 @@ const suppliersModel = {
                     resolve(results);
                 }
             }
+            
         }  
         )
     },
