@@ -54,6 +54,7 @@ const suppliersModel = {
                     resolve(results);
                 }
             }
+            //segunda query elimina el supplier
             const query = "DELETE FROM suppliers WHERE id=?";
             database.query(query,[id]),(error,results) =>{
                 if(error){

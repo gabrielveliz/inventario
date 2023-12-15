@@ -94,7 +94,7 @@ const DetProduct = () =>{
                             <td><p>${data.price}</p></td>
                             <td><p>{data.name_supplier}</p></td>
                             <td><p>{data.state===1 ? "Active":"Inactive" }</p></td>
-                            <td className='center'><button onClick={()=>edit(data.id,data.name,data.des,data.price,data.id_sup,data.state)}>Edit</button></td>
+                            <td className='center'><button className='orange' onClick={()=>edit(data.id,data.name,data.des,data.price,data.id_sup,data.state)}>Edit</button></td>
                             <td className='center'><DeleteProduct idprod={data.id} refreshdata={refreshdata} prod={data.name}></DeleteProduct></td>
                         </tr>
                     ))

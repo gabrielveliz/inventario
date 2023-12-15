@@ -1,6 +1,7 @@
 import LayTop from '../components/UpperMenu';
 import LayLeft from '../components/LateralMenu';
 import LayBottom from '../components/Footer';
+import ConfiPanel from '../components/ConfiPanel'
 
 
 const Configuration = () => {
@@ -10,7 +11,7 @@ const Configuration = () => {
             <LayTop/>
             <div className='contmain'>
                 <LayLeft/>
-                <div>Configuration</div>
+                <ConfiPanel/>
             </div>
             <LayBottom/>
         </div>

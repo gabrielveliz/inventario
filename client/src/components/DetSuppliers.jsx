@@ -102,7 +102,7 @@ const DetSuppliers = () =>{
                             <td><p>{data.name}</p></td>
                             <td><p>{data.contact_person}</p></td>
                             <td><p>{data.state===1 ? "Active":"Inactive" }</p></td>
-                            <td className='center'><button onClick={()=>edit(data.id,data.name,data.address,data.contact_person,data.contact_number,data.state)}>Edit</button></td>
+                            <td className='center'><button className='orange' onClick={()=>edit(data.id,data.name,data.address,data.contact_person,data.contact_number,data.state)}>Edit</button></td>
                             <td className='center'><DelSupplier idsupp={data.id} refreshdata={refreshdata} supplier={data.name}/></td>
                         </tr>
                     ))
