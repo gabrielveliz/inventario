@@ -4,6 +4,7 @@ const cors = require('cors');
 const userRoutes = require('./routes/userRoutes');
 const inventoryRoutes = require('./routes/inventoryRoutes');
 const suppliersRoutes= require('./routes/suppliersRoutes');
+const confPageRoutes= require('./routes/confPageRoutes');
 
 
 const app = express();
@@ -23,6 +24,9 @@ app.use('/products', inventoryRoutes);
 
 //rutas proveedores
 app.use('/suppliers',suppliersRoutes);
+
+//rutas proveedores
+app.use('/configuration',confPageRoutes);
 
 
 app.listen(port,()=>{

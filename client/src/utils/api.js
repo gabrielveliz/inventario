@@ -30,6 +30,8 @@ const apiRequests = {
     postLogin:async(credentials)=>api.post('/users/login',credentials),
     getusers:async()=>api.get('/users/getusers'),
 
+    //apartado Configuration
+    getConfiguration:async()=>api.get('/configuration'),
     
 
 }
